@@ -47,20 +47,6 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   
 Scenario: all ratings selected
   # see assignment
-  When I check "ratings_PG"
-  When I check "ratings_R"
-  When I check "ratings_G"
-  When I check "ratings_PG-13"
-  When I check "ratings_NC-17"
+  Given I check the following ratings: G, PG, R, PG-13, NC-17
   # enter step to "submit" the search form on the homepage
-  When I press "ratings_submit"
-  Then I should see "The Incredibles"
-  Then I should see "Raiders of the Lost Ark"
-  Then I should see "The Terminator"
-  Then I should see "When Harry Met Sally"
-  Then I should see "Amelie"
-  Then I should see "Aladdin"
-  Then I should see "The Help"
-  Then I should see "Chocolat"
-  Then I should see "2001: A Space Odyssey"
-  Then I should see "Chicken Run"
+  Then I should see all the movies
